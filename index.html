@@ -13,109 +13,107 @@
       }
     }
   </script>
-  
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
-
   <style>
     html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  background: black;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background: black;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
 
-#controlPanel {
-  height: 25%;
-  width: 100%;
-  background: #111;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative
-}
+    #controlPanel {
+      height: 25%;
+      width: 100%;
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
 
-#controlCanvas {
-  width: 100%;
-  height: 100%;
-  display: block;
-  background-color: #222;
-}
+    #controlCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      background-color: #222;
+    }
 
-#wrapper {
-  height: 75%;
-  width: 100%;
-  display: flex;
-  background: black;
-}
+    #sceneText {
+      position: absolute;
+      top: 10px;
+      left: 140px;
+      right: 140px;
+      bottom: 10px;
+      color: white;
+      /* pointer-events: none; */ 
+      user-select: none;
+      z-index: 10;
+      overflow: auto;         /* prevents overflow */
+      word-wrap: break-word;  /* allows wrapping */
+      line-height: 1.4;
+    }
 
-#leftMapContainer {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: black;
-  overflow: hidden;
-  position: relative;
-}
+    #wrapper {
+      height: 75%;
+      width: 100%;
+      display: flex;
+      background: black;
+    }
 
-#rightMapContainer {
-  flex: 1;
-  min-width: 0;
-  background: black;
-  position: relative;
-}
+    #leftMapContainer {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: black;
+      overflow: hidden;
+      position: relative;
+    }
 
+    #rightMapContainer {
+      flex: 1;
+      min-width: 0;
+      background: black;
+      position: relative;
+    }
   </style>
 </head>
+
 <body>
   <div id="controlPanel">
     <canvas id="controlCanvas"></canvas>
-    <div id="sceneText" style="
-      position: absolute;
-      top: 10px;
-      left: 200px;
-      color: white;
-      font-size: 22px;
-      pointer-events: none;
-      user-select: none;
-      z-index: 10;
-      ">
-     <!-- Dynamic text here -->
+    <div id="sceneText">
+      <!-- Dynamic text will appear here -->
     </div>
-
-   
-   
-
   </div>
 
   <div id="wrapper">
-    <div id="leftMapContainer">
-    </div>
-    <div id="rightMapContainer">
-    </div>  
+    <div id="leftMapContainer"></div>
+    <div id="rightMapContainer"></div>
   </div>
 
   <script type="module" src="script.js"></script>
-  <script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']]
-    },
-    startup: {
-      typeset: false  // important! you will typeset manually later
-    }
-  };
-</script>
 
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      startup: {
+        typeset: false  // important! we will typeset manually later
+      }
+    };
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </body>
-
 </html>
